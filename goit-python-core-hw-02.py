@@ -1,18 +1,17 @@
-from symtable import Symbol
-
-
-result = None
+result = 0
 operand = None
-operator = None
+operator = '+'
 wait_for_number = True
-symbol = input('Enter operand or operator ("=" for output): ')
 
 while True:
-    if symbol == '=':
+    elem = input('Enter operand or operator ("=" for output): ')
+    if elem == '=':
         print(result)
         break
-    elif symbol == '+' or '-' or '*' or '/':
-        operator= symbol
+    elif elem == '+' or elem == '-' or elem == '*' or elem == '/':
+        operator = elem
+    else:
+        operand = int(elem)
         if operator == '+':
             result = result + operand
         elif operator == '-':
@@ -21,5 +20,3 @@ while True:
             result = result * operand
         elif operator == '/':
             result = result / operand
-    else:
-        operand = int(symbol)
